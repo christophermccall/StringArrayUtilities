@@ -44,8 +44,15 @@ public class StringArrayUtils {
      * @return true if the array contains the specified `value`
      */ // TODO
     public static boolean contains(String[] array, String value) {
-
-        return (contains(array, value));
+        int i= 0;
+        boolean onOffSwitch= false;
+        while(i<array.length){
+            if(array[i].equals(value)){
+                onOffSwitch=true;
+            }
+            i++;
+        }
+        return onOffSwitch;
     }
 
     /**
@@ -90,31 +97,17 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        int k = 0;
-        String sentence = "";
-        while (k < array.length) {
-            if(!array[k].equals(" ")) {
-                sentence += array[k];
-                k++;
-            } else{
-                k++;
-            }
-        }
-        char[] letters = "_abcdefghijklmnopqrstuvwxyz".toCharArray();
+        int i = 0 ;
+        boolean onOffSwitch = false;
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String arrayIntoOneWord ="";
 
-        int i = 0;
-
-        boolean switchOnOff = true;
-        while (i < letters.length) {
-            String newsen = sentence.replace(' ','_');
-            if (newsen.indexOf(letters[i]) == -1) {
-                switchOnOff = false;
-                break;
-            }
+        while(i<array.length){
+            arrayIntoOneWord += array[i];
             i++;
         }
 
-        return switchOnOff;
+
     }
 
     /**
